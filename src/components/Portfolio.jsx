@@ -564,8 +564,8 @@ export default function Portfolio() {
                             transition={{ duration: 0.5, delay: 0.3 }}
                         >
                             {[
-                                { href: "https://www.linkedin.com/in/ram-bhogesara-5a9b57340/", icon: Linkedin, color: "text-blue-600", bg: "hover:bg-blue-50 hover:shadow-blue-200/50" },
-                                { href: "https://github.com/rambhogesara", icon: Github, color: "text-indigo-600", bg: "hover:bg-indigo-50 hover:shadow-indigo-200/50" },
+                                { href: "https://www.linkedin.com/in/ram-bhogesara-207b28380/", icon: Linkedin, color: "text-blue-600", bg: "hover:bg-blue-50 hover:shadow-blue-200/50" },
+                                { href: "https://github.com/bhogesararam23", icon: Github, color: "text-indigo-600", bg: "hover:bg-indigo-50 hover:shadow-indigo-200/50" },
                                 { href: "mailto:bhogesara.ram23@gmail.com", icon: Mail, color: "text-purple-600", bg: "hover:bg-purple-50 hover:shadow-purple-200/50" },
                             ].map((social, index) => (
                                 <motion.a
@@ -1000,7 +1000,7 @@ export default function Portfolio() {
                         {[
                             { href: "mailto:bhogesara.ram23@gmail.com", icon: Mail, color: "text-purple-600", bgGlow: "group-hover:shadow-purple-200", title: "Email", info: "bhogesara.ram23@gmail.com" },
                             { href: "tel:+918128328071", icon: Phone, color: "text-indigo-600", bgGlow: "group-hover:shadow-indigo-200", title: "Phone", info: "+91 81283 28071" },
-                            { href: "https://www.linkedin.com/in/ram-bhogesara-5a9b57340/", icon: Linkedin, color: "text-blue-600", bgGlow: "group-hover:shadow-blue-200", title: "LinkedIn", info: "Connect with me" }
+                            { href: "https://www.linkedin.com/in/ram-bhogesara-207b28380/", icon: Linkedin, color: "text-blue-600", bgGlow: "group-hover:shadow-blue-200", title: "LinkedIn", info: "Connect with me" }
                         ].map((contact, index) => (
                             <motion.a
                                 key={contact.title}
