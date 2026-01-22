@@ -629,7 +629,7 @@ export default function Portfolio() {
                         <h2 className="text-4xl font-bold text-gray-900">About Me</h2>
                     </motion.div>
 
-                    <AnimatedCard className="ultra-rounded spotlight-card bg-white p-8 shadow-xl border border-indigo-100/30 inner-glow">
+                    <AnimatedCard className="ultra-rounded spotlight-card card-pattern card-shine bg-white p-8 shadow-xl border border-indigo-100/30 inner-glow">
                         <motion.p
                             className="text-lg text-gray-700 leading-relaxed mb-4"
                             initial={{ opacity: 0 }}
@@ -652,6 +652,9 @@ export default function Portfolio() {
                 </div>
             </AnimatedSection>
 
+            {/* Section Divider */}
+            <div className="section-divider my-4" />
+
             {/* Education Section */}
             <AnimatedSection id="education" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-4xl mx-auto">
@@ -665,7 +668,7 @@ export default function Portfolio() {
                         <h2 className="text-4xl font-bold text-gray-900">Education</h2>
                     </motion.div>
 
-                    <AnimatedCard className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100/50">
+                    <AnimatedCard className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100/50 card-pattern card-shine">
                         <div className="flex items-start space-x-6">
                             <motion.div
                                 className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg"
@@ -699,6 +702,9 @@ export default function Portfolio() {
                     </AnimatedCard>
                 </div>
             </AnimatedSection>
+
+            {/* Section Divider */}
+            <div className="section-divider my-4" />
 
             {/* Skills Section */}
             <AnimatedSection id="skills" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
@@ -776,7 +782,7 @@ export default function Portfolio() {
 
                     <div className="space-y-8">
                         {/* Wice Weather Project */}
-                        <AnimatedCard className="ultra-rounded-lg spotlight-card bg-white overflow-hidden shadow-xl border border-indigo-100/30">
+                        <AnimatedCard className="ultra-rounded-lg spotlight-card card-pattern card-shine bg-white overflow-hidden shadow-xl border border-indigo-100/30">
                             <div className="md:flex">
                                 <motion.div
                                     className="md:w-2/5 bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 p-12 flex items-center justify-center relative overflow-hidden"
@@ -861,7 +867,7 @@ export default function Portfolio() {
                         </AnimatedCard>
 
                         {/* No-Code Project */}
-                        <AnimatedCard delay={0.1} className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-100/50">
+                        <AnimatedCard delay={0.1} className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-100/50 card-pattern card-shine">
                             <div className="flex items-start space-x-6">
                                 <motion.div
                                     className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-purple-400 via-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg"
