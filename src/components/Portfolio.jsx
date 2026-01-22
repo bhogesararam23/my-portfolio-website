@@ -21,7 +21,7 @@ const InteractiveParticleField = () => {
         let particles = [];
 
         // Configuration
-        const spacing = window.innerWidth < 768 ? 40 : 25; // Grid spacing
+        const spacing = window.innerWidth < 768 ? 50 : 35; // Grid spacing (increased for performance)
         const repulsionRadius = 120; // Radius of mouse influence
         const pushForce = 5; // Strength of mouse repulsion
         const springStiffness = 0.08; // How fast they snap back (higher = faster)
@@ -195,7 +195,7 @@ const GradientOrbs = () => (
                 x: [0, 30, 0],
                 y: [0, -30, 0],
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
             className="absolute top-1/2 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-full blur-3xl"
@@ -204,7 +204,7 @@ const GradientOrbs = () => (
                 x: [0, 20, 0],
                 y: [0, 40, 0],
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
             className="absolute bottom-20 right-1/4 w-72 h-72 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-3xl"
@@ -213,7 +213,7 @@ const GradientOrbs = () => (
                 x: [0, -20, 0],
                 y: [0, 20, 0],
             }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
     </div>
 );
@@ -228,9 +228,9 @@ const AnimatedSection = ({ children, className = "", id }) => {
             id={id}
             ref={ref}
             className={className}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         >
             {children}
         </motion.section>
@@ -264,10 +264,10 @@ const AnimatedCard = ({ children, className = "", delay = 0 }) => {
     return (
         <motion.div
             className={`${className} relative overflow-hidden transition-all duration-200 ease-out`}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay, ease: "easeOut" }}
+            transition={{ duration: 0.4, delay, ease: [0.25, 0.1, 0.25, 1] }}
             style={{
                 rotateX,
                 rotateY,
@@ -301,8 +301,8 @@ const SkillBadge = ({ skill, delay }) => (
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay }}
-        whileHover={{ scale: 1.1, y: -2 }}
+        transition={{ duration: 0.25, delay }}
+        whileHover={{ scale: 1.05, y: -1 }}
     >
         {skill}
     </motion.span>
@@ -363,9 +363,9 @@ const TextReveal = ({ text, className = "" }) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{
-                                duration: 0.4,
-                                delay: wordIndex * 0.1 + charIndex * 0.03,
-                                ease: [0.2, 0.65, 0.3, 0.9],
+                                duration: 0.3,
+                                delay: wordIndex * 0.08 + charIndex * 0.02,
+                                ease: [0.25, 0.1, 0.25, 1],
                             }}
                         >
                             {char}
@@ -425,7 +425,7 @@ export default function Portfolio() {
                     }`}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             >
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
@@ -449,7 +449,7 @@ export default function Portfolio() {
                                         }`}
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 }}
+                                    transition={{ delay: index * 0.05 }}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -507,7 +507,7 @@ export default function Portfolio() {
                                         className="block w-full text-left px-4 py-3 capitalize text-gray-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 rounded-lg transition-all"
                                         initial={{ x: -20, opacity: 0 }}
                                         animate={{ x: 0, opacity: 1 }}
-                                        transition={{ delay: index * 0.05 }}
+                                        transition={{ delay: index * 0.03 }}
                                     >
                                         {section}
                                     </motion.button>
@@ -525,13 +525,13 @@ export default function Portfolio() {
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.5 }}
                         >
                             <motion.div
                                 className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-6"
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
-                                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+                                transition={{ delay: 0.2, type: "spring", stiffness: 300, damping: 20 }}
                             >
                                 <Sparkles className="w-4 h-4 text-purple-600" />
                                 <span className="text-sm font-medium text-gray-700">Welcome to my portfolio</span>
@@ -542,7 +542,7 @@ export default function Portfolio() {
                             className="text-5xl sm:text-7xl font-bold text-gray-900 mb-6"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
                         >
                             Hi, I'm{' '}
                             <span className="text-gradient-animate">Ram Bhogesara</span>
@@ -552,7 +552,7 @@ export default function Portfolio() {
                             className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
                         >
                             Research-driven Data Science student at IIT Madras, exploring the intersection of AI, systems thinking, and real-world problem solving
                         </motion.p>
@@ -561,7 +561,7 @@ export default function Portfolio() {
                             className="flex justify-center space-x-4 mb-8"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
                         >
                             {[
                                 { href: "https://www.linkedin.com/in/ram-bhogesara-5a9b57340/", icon: Linkedin, color: "text-blue-600", bg: "hover:bg-blue-50 hover:shadow-blue-200/50" },
@@ -578,7 +578,7 @@ export default function Portfolio() {
                                     whileTap={{ scale: 0.95 }}
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 0.8 + index * 0.1, type: "spring" }}
+                                    transition={{ delay: 0.4 + index * 0.08, type: "spring", stiffness: 400, damping: 20 }}
                                 >
                                     <social.icon className={`w-6 h-6 ${social.color} group-hover:scale-110 transition-transform`} />
                                 </motion.a>
@@ -590,11 +590,11 @@ export default function Portfolio() {
                             className="group"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 1.2 }}
+                            transition={{ delay: 0.6 }}
                         >
                             <motion.div
-                                animate={{ y: [0, 10, 0] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                animate={{ y: [0, 8, 0] }}
+                                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                                 className="p-4 ultra-rounded bg-gradient-to-br from-indigo-100 to-purple-100 group-hover:from-indigo-200 group-hover:to-purple-200 transition-all shadow-lg"
                             >
                                 <ChevronDown className="w-8 h-8 text-blue-600" />
@@ -611,8 +611,8 @@ export default function Portfolio() {
                 />
                 <motion.div
                     className="absolute bottom-20 right-20 w-16 h-16 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.6, 0.4] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 />
             </section>
 
@@ -635,7 +635,7 @@ export default function Portfolio() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
+                            transition={{ delay: 0.1 }}
                         >
                             I'm a BS Data Science student at the Indian Institute of Technology Madras with a strong passion for applied research and system-level thinking. My approach combines structured reasoning with user-centric research to build meaningful tech products.
                         </motion.p>
@@ -644,7 +644,7 @@ export default function Portfolio() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
+                            transition={{ delay: 0.1 }}
                         >
                             Currently working on Wice Weather, an applied weather-based travel assistance platform, while developing foundations for long-term research in AI-driven systems. I'm particularly interested in how abstract concepts translate into functional, real-world solutions.
                         </motion.p>
@@ -687,8 +687,8 @@ export default function Portfolio() {
                                     whileHover={{ scale: 1.05 }}
                                 >
                                     <motion.span
-                                        animate={{ scale: [1, 1.2, 1] }}
-                                        transition={{ duration: 2, repeat: Infinity }}
+                                        animate={{ scale: [1, 1.1, 1] }}
+                                        transition={{ duration: 3, repeat: Infinity }}
                                     >
                                         ✓
                                     </motion.span>
@@ -742,7 +742,7 @@ export default function Portfolio() {
                         ].map((category, categoryIndex) => (
                             <AnimatedCard
                                 key={category.title}
-                                delay={categoryIndex * 0.1}
+                                delay={categoryIndex * 0.08}
                                 className={`ultra-rounded spotlight-card bg-white p-6 soft-shadow border ${category.borderColor}`}
                             >
                                 <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
@@ -751,7 +751,7 @@ export default function Portfolio() {
                                         <SkillBadge
                                             key={skill}
                                             skill={skill}
-                                            delay={categoryIndex * 0.1 + skillIndex * 0.05}
+                                            delay={categoryIndex * 0.08 + skillIndex * 0.03}
                                         />
                                     ))}
                                 </div>
@@ -787,20 +787,20 @@ export default function Portfolio() {
                                         <motion.div
                                             className="absolute top-0 left-0 w-40 h-40 bg-white rounded-full"
                                             animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-                                            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                                            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
                                         />
                                         <motion.div
                                             className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-full"
                                             animate={{ x: [0, -30, 0], y: [0, -50, 0] }}
-                                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                                         />
                                     </div>
 
                                     <div className="text-white text-center relative z-10">
                                         <motion.div
                                             className="text-7xl mb-4"
-                                            animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.1, 1] }}
-                                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                            animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }}
+                                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                                         >
                                             🌤️
                                         </motion.div>
@@ -813,8 +813,8 @@ export default function Portfolio() {
                                         <h3 className="text-2xl font-bold text-gray-900">Weather-Based Travel Assistance Platform</h3>
                                         <motion.span
                                             className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm"
-                                            animate={{ scale: [1, 1.05, 1] }}
-                                            transition={{ duration: 2, repeat: Infinity }}
+                                            animate={{ scale: [1, 1.02, 1] }}
+                                            transition={{ duration: 3, repeat: Infinity }}
                                         >
                                             Ongoing
                                         </motion.span>
@@ -837,7 +837,7 @@ export default function Portfolio() {
                                                     initial={{ opacity: 0, x: -20 }}
                                                     whileInView={{ opacity: 1, x: 0 }}
                                                     viewport={{ once: true }}
-                                                    transition={{ delay: index * 0.1 }}
+                                                    transition={{ delay: index * 0.05 }}
                                                 >
                                                     <span className="text-blue-500 mt-1">•</span>
                                                     {item}
@@ -861,7 +861,7 @@ export default function Portfolio() {
                         </AnimatedCard>
 
                         {/* No-Code Project */}
-                        <AnimatedCard delay={0.2} className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-100/50">
+                        <AnimatedCard delay={0.1} className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-100/50">
                             <div className="flex items-start space-x-6">
                                 <motion.div
                                     className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-purple-400 via-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg"
@@ -883,8 +883,8 @@ export default function Portfolio() {
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 whileInView={{ opacity: 1, scale: 1 }}
                                                 viewport={{ once: true }}
-                                                transition={{ delay: index * 0.1 }}
-                                                whileHover={{ scale: 1.1 }}
+                                                transition={{ delay: index * 0.05 }}
+                                                whileHover={{ scale: 1.05 }}
                                             >
                                                 {tag}
                                             </motion.span>
@@ -921,14 +921,14 @@ export default function Portfolio() {
                                 ].map((cert, idx) => (
                                     <AnimatedCard
                                         key={idx}
-                                        delay={idx * 0.1}
+                                        delay={idx * 0.08}
                                         className="bg-gradient-to-r from-blue-50/80 to-purple-50/80 rounded-2xl p-5 shadow-md border border-white/50"
                                     >
                                         <div className="flex items-start space-x-4">
                                             <motion.span
                                                 className="text-3xl"
-                                                animate={{ rotate: [0, 10, -10, 0] }}
-                                                transition={{ duration: 2, repeat: Infinity, delay: idx * 0.5 }}
+                                                animate={{ rotate: [0, 5, -5, 0] }}
+                                                transition={{ duration: 4, repeat: Infinity, delay: idx * 0.3 }}
                                             >
                                                 {cert.icon}
                                             </motion.span>
@@ -954,7 +954,7 @@ export default function Portfolio() {
                                 ].map((achievement, idx) => (
                                     <AnimatedCard
                                         key={idx}
-                                        delay={idx * 0.1}
+                                        delay={idx * 0.08}
                                         className="flex items-start space-x-4 bg-gradient-to-r from-green-50/80 to-emerald-50/80 rounded-2xl p-5 shadow-md border border-white/50"
                                     >
                                         <motion.span
@@ -962,7 +962,7 @@ export default function Portfolio() {
                                             initial={{ scale: 0 }}
                                             whileInView={{ scale: 1 }}
                                             viewport={{ once: true }}
-                                            transition={{ delay: idx * 0.1, type: "spring" }}
+                                            transition={{ delay: idx * 0.08, type: "spring", stiffness: 400, damping: 20 }}
                                         >
                                             ✓
                                         </motion.span>
@@ -1011,12 +1011,12 @@ export default function Portfolio() {
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                whileHover={{ scale: 1.05, y: -5 }}
+                                transition={{ delay: index * 0.08 }}
+                                whileHover={{ scale: 1.03, y: -3 }}
                             >
                                 <motion.div
-                                    animate={{ y: [0, -5, 0] }}
-                                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                                    animate={{ y: [0, -3, 0] }}
+                                    transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                                 >
                                     <contact.icon className={`w-14 h-14 ${contact.color} mx-auto mb-4 group-hover:scale-110 transition-transform`} />
                                 </motion.div>
@@ -1036,8 +1036,8 @@ export default function Portfolio() {
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: index * 0.05 }}
-                                    whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.3)" }}
+                                    transition={{ delay: index * 0.03 }}
+                                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.25)" }}
                                 >
                                     {interest}
                                 </motion.span>
