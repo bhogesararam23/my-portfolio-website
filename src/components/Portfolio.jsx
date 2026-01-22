@@ -36,10 +36,14 @@ const InteractiveParticleField = () => {
         ];
 
         // Resize handler
+        let resizeTimeout;
         const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                initParticles();
+            }, 100);
         };
 
         // Mouse handlers
@@ -173,6 +177,7 @@ const InteractiveParticleField = () => {
     return (
         <canvas
             ref={canvasRef}
+            aria-hidden="true"
             className="fixed inset-0 pointer-events-none z-0 block"
             style={{ opacity: 0.8 }}
         />
@@ -233,7 +238,7 @@ const AnimatedSection = ({ children, className = "", id }) => {
 };
 
 // 3D Tilt Card Component
-const TiltCard = ({ children, className = "", delay = 0 }) => {
+const AnimatedCard = ({ children, className = "", delay = 0 }) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
     const rotateX = useTransform(y, [-100, 100], [5, -5]); // Inverted for natural tilt
@@ -287,7 +292,7 @@ const TiltCard = ({ children, className = "", delay = 0 }) => {
 };
 
 // Standard Animated Card (Keep for simpler usages if needed, or replace fully)
-const AnimatedCard = TiltCard; // Replacing AnimatedCard directly with TiltCard for now
+// const AnimatedCard = TiltCard; // Replacing AnimatedCard directly with TiltCard for now
 
 // Skill badge with animation
 const SkillBadge = ({ skill, delay }) => (
