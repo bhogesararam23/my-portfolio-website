@@ -4,7 +4,7 @@ Personal portfolio website for Ram Bhogesara, a research-driven Data Science stu
 
 ## Live Site
 
-[**bhogesararam23.github.io/my-portfolio-website**](https://bhogesararam23.github.io/my-portfolio-website/)
+Deployed on [**Vercel**](https://vercel.com) — link available after deployment.
 
 ## Tech Stack
 
@@ -12,7 +12,7 @@ Personal portfolio website for Ram Bhogesara, a research-driven Data Science stu
 - **Vite** — Build tool
 - **Tailwind CSS v4** — Utility styles
 - **Framer Motion** — Minimal scroll transitions
-- **GitHub Pages** — Deployment via GitHub Actions
+- **Vercel** — Deployment (auto-deploys on push to `main`)
 
 ## Local Development
 
