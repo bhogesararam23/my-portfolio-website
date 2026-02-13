@@ -76,7 +76,7 @@ export default function Portfolio() {
                 <div className="nav-inner">
                     <span className="nav-brand">Ram Bhogesara</span>
 
-                    <div className="nav-links hidden md:flex">
+                    <div className="nav-links">
                         {navItems.map((item) => (
                             <button
                                 key={item}
@@ -89,7 +89,7 @@ export default function Portfolio() {
                     </div>
 
                     <button
-                        className="nav-toggle md:hidden"
+                        className="nav-toggle"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         aria-label="Toggle navigation"
                     >
@@ -100,12 +100,12 @@ export default function Portfolio() {
                 <AnimatePresence>
                     {mobileMenuOpen && (
                         <motion.div
-                            className="nav-mobile nav-mobile--open md:hidden"
+                            className="nav-mobile nav-mobile--open"
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.2 }}
-                            style={{ overflow: 'hidden', padding: '0 1.5rem' }}
+                            style={{ overflow: 'hidden' }}
                         >
                             {navItems.map((item) => (
                                 <button
